@@ -1,3 +1,6 @@
 Mima/local_settings.py
 .idea
 venv
+Mima/__pycache__
+facts/__pycache__
+facts/migrations/__pycache__
