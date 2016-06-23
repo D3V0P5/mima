@@ -25,6 +25,16 @@ class ListSongsView(ListView):
 
 
 
+class ListAllView(ListView):
+    model = models.Song
+    template_name = 'facts/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListAllView, self).get_context_data(**kwargs)
+        context['artist'] = models.Artist.objects.all() #.order_by('first_name')
+        return context
+
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -42,6 +52,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 class SongViewSet(viewsets.ModelViewSet):
     queryset = models.Song.objects.all()
     serializer_class = SongSerializer
+
 
 
 
