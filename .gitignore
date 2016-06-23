@@ -1,2 +1,3 @@
 Mima/local_settings.py
 .idea
+facts/__pycache__
