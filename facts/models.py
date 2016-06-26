@@ -5,8 +5,8 @@ from django.db import models
 
 
 class Artist(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, db_index=True , unique=True)
+    last_name = models.CharField(max_length=30, default="")
 
 
 class Song(models.Model):
@@ -21,5 +21,5 @@ class Song(models.Model):
 
 class Fact(models.Model):
     # artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    song = models.ForeignKey(Song, on_delete=models.CASCADE , related_name="facts")
-    content = models.TextField()
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, related_name="facts")
+    content = models.TextField(default="אימא של דג'נגו")
