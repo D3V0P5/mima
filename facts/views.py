@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from facts.serializers import UserSerializer, GroupSerializer, SongSerializer
+from facts.serializers import UserSerializer, GroupSerializer, SongSerializer , ArtistSerializer , FactSerializer
 
 from . import models
 # Create your views here.
@@ -49,14 +49,24 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
+
+class ArtistViewSet(viewsets.ModelViewSet):
+    queryset = models.Artist.objects.all()
+    serializer_class = ArtistSerializer
+
 class SongViewSet(viewsets.ModelViewSet):
     queryset = models.Song.objects.all()
     serializer_class = SongSerializer
 
+class FactViewSet(viewsets.ModelViewSet):
+    queryset = models.Fact.objects.all()
+    serializer_class = FactSerializer
 
 
+#https://select2.github.io/examples.html
+#http://selectize.github.io/selectize.js/
 
-#        def get_context_data(self, **kwargs):
+        #        def get_context_data(self, **kwargs):
 #            context = super(IndexView, self).get_context_data(**kwargs)
 #            context['roles'] = Role.objects.all()
 #            context['venue_list'] = Venue.objects.all()
