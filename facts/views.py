@@ -9,8 +9,10 @@ from . import models
 # Create your views here.
 
 
-
 from django.views.generic import ListView , DetailView
+
+class ListArtistsView(ListView):
+    model = models.Artist
 
 
 class ListSongsView(ListView):
@@ -27,6 +29,9 @@ class ListSongsView(ListView):
 class SongDetailView(DetailView):
     model = models.Song
 
+
+class ArtistDetailView(DetailView):
+    model = models.Artist
 
 
 class ListAllView(ListView):
