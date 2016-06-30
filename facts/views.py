@@ -10,18 +10,22 @@ from . import models
 
 
 
-from django.views.generic import ListView
+from django.views.generic import ListView , DetailView
 
 
 class ListSongsView(ListView):
     model = models.Song
-# template_name = 'dashboard.html'
+    #template_name = 'facts/index.html'
+    #paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(ListSongsView, self).get_context_data(**kwargs)
         context['artist'] = models.Artist.objects.all() #.order_by('first_name')
         return context
-#paginate_by = 10
+
+
+class SongDetailView(DetailView):
+    model = models.Song
 
 
 

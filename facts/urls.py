@@ -14,5 +14,7 @@ router.register(r'Facts' , views.FactViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')) ,
-    url(r'', views.ListAllView.as_view(), name="songlist_for_linkin"),
+    url(r'^song/(?P<pk>\d+)/$' , views.SongDetailView.as_view(), name="song_detail") ,
+    url(r'^$', views.ListSongsView.as_view(template_name="facts/index.html")) , #, name="songlist_for_linkin"),
+
 ]
