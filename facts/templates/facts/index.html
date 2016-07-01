@@ -5,6 +5,8 @@
 
 
 
+
+
 <div class="list-group" style="background:none;">
        {% for song in object_list %}
 
@@ -16,9 +18,14 @@
 
 
 
- <!--{{ object_list }} -->
 
+   <script>
+     $(".chosen-select").chosen({inherit_select_classes : true}) ;
+     $(".chosen-select").chosen({no_results_text: "גם כן אמן. פחחח"});
+     $(".chosen-select").change(function(s){
+        $( location ).attr("href",$("#ar").val())
+     });
+    </script>
 
-</p>
 
 {% endblock %}

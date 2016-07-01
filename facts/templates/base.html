@@ -32,11 +32,14 @@
 
     <h1 class="text-center"><a class="text-muted" href="/">
         מימה
-</a></h1><br>
-<form class="form-inline text-center">
+</a></h1>
 
+    <br>
+
+<!--
+<form class="form-inline text-center">
   <div class="form-group">
-   <!-- <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label> -->
+   <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
     <div class="input-group">
       <div class="input-group-addon">♫</div>
       <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder="...ביצע/ה ניתוח לשינוי מין">
@@ -46,20 +49,7 @@
   </div>
 
 </form>
-</div>
-
-
-
-
-<select id="ar" data-placeholder="בחר אמן" class="chosen-select chosen-rtl" style="width:177px;" >
-            <option value=""></option>
-        {% for artist in object_list %}
-        <option value="{{ object.get_absolute_url }}/artist/{{artist.id}}">{{artist.name}}</option>
-        {% endfor %}
-</select>
-
-
-
+-->
 
 <div>
 {% block content %}
@@ -67,12 +57,4 @@
 </div>
 
 </body>
-
-   <script>
-     $(".chosen-select").chosen({inherit_select_classes : true}) ;
-     $(".chosen-select").chosen({no_results_text: "גם כן אמן. פחחח"});
-     $(".chosen-select").change(function(s){
-        $( location ).attr("href",$("#ar").val())
-     });
-    </script>
 </html>

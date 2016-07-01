@@ -13,7 +13,7 @@
 מאת -
 
 <a href="{{ object.get_absolute_url }}/artist/{{object.artist.id}}">{{object.artist.name}}</a>
-
+<div align="right">
 <ul>
 {% for fact in object.facts.all %}
 <li>
@@ -21,5 +21,5 @@
 </li>
 {% endfor %}
 </ul>
-
+</div>
 {% endblock %}
