@@ -4,12 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'chosen/chosen.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'chosen.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.rtl.css' %}">
+
+
     <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}" >
     <script src="{% static 'jquery-3.0.0.min.js'%}"></script>
-    <script src="{% static 'chosen/chosen.jquery.js'%}"></script>
+    <script src="{% static 'chosen.jquery.js'%}"></script>
 
 
 
@@ -45,8 +46,18 @@
   </div>
 
 </form>
-
 </div>
+
+
+
+
+<select id="ar" data-placeholder="בחר אמן" class="chosen-select chosen-rtl" style="width:177px;" >
+            <option value=""></option>
+        {% for artist in object_list %}
+        <option value="{{ object.get_absolute_url }}/artist/{{artist.id}}">{{artist.name}}</option>
+        {% endfor %}
+</select>
+
 
 
 
@@ -58,6 +69,10 @@
 </body>
 
    <script>
-        $(".chosen-select").chosen()
+     $(".chosen-select").chosen({inherit_select_classes : true}) ;
+     $(".chosen-select").chosen({no_results_text: "גם כן אמן. פחחח"});
+     $(".chosen-select").change(function(s){
+        $( location ).attr("href",$("#ar").val())
+     });
     </script>
 </html>

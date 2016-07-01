@@ -4,13 +4,6 @@
 {% block content %}
 
 
-<select id="ar" data-placeholder="בחר אמן" class="chosen-select chosen-rtl" style="width:177px;" >
-            <option value=""></option>
-        {% for artist in object_list %}
-        <option value="{{ object.get_absolute_url }}/artist/{{artist.id}}">{{artist.name}}</option>
-        {% endfor %}
-</select>
-
 <div class="list-group" style="background:none;">
        {% for artist in object_list %}
 
@@ -25,7 +18,6 @@ $(".chosen-select").chosen({no_results_text: "גם כן אמן. פחחח"});
      $(".chosen-select").change(function(s){
      $( location ).attr("href",$("#ar").val())
      }
-
      );
 
 </script>
