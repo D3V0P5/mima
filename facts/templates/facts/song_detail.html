@@ -3,7 +3,7 @@
 
 {% block content %}
 
-
+<h5>
 שם השיר
 -
 {{object.name}}
@@ -13,6 +13,8 @@
 מאת -
 
 <a href="{{ object.get_absolute_url }}/artist/{{object.artist.id}}">{{object.artist.name}}</a>
+</h5>
+
 <div align="right">
 <ul>
 {% for fact in object.facts.all %}
