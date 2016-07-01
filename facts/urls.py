@@ -9,6 +9,8 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'songs' , views.SongViewSet)
+router.register(r'Artists' , views.ArtistViewSet)
+router.register(r'Facts',views.FactviewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
