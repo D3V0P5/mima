@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+
+שם השיר
+-
+{{object.name}}
+
+</br>
+
+מאת -
+
+<a href="{{ object.get_absolute_url }}/artist/{{object.artist.id}}">{{object.artist.name}}</a>
+
+<ul>
+{% for fact in object.facts.all %}
+<li>
+{{fact}}
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

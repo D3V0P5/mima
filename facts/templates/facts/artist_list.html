@@ -1,10 +1,33 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 
-<h1>להלה</h1>
+{% block content %}
 
 
-{% for obj in object_list %}
+<select id="ar" data-placeholder="בחר אמן" class="chosen-select chosen-rtl" style="width:177px;" >
+            <option value=""></option>
+        {% for artist in object_list %}
+        <option value="{{ object.get_absolute_url }}/artist/{{artist.id}}">{{artist.name}}</option>
+        {% endfor %}
+</select>
 
-<li>{obj}</li>
-{% endfor %}
+<div class="list-group" style="background:none;">
+       {% for artist in object_list %}
+
+        <a class="btn text-muted" style="opacity: 0.9;"
+           href="{{ object.get_absolute_url }}/artist/{{artist.id}}">{{artist.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        {% endfor %}
+
+</div>
+
+<script>
+$(".chosen-select").chosen({no_results_text: "גם כן אמן. פחחח"});
+     $(".chosen-select").change(function(s){
+     $( location ).attr("href",$("#ar").val())
+     }
+
+     );
+
+</script>
+
+{% endblock %}

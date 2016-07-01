@@ -4,23 +4,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'chosen/chosen.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.rtl.css' %}">
+    <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}" >
+    <script src="{% static 'jquery-3.0.0.min.js'%}"></script>
+    <script src="{% static 'chosen/chosen.jquery.js'%}"></script>
+
+
+
+    <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
-
+-->
 
     <title>מימה</title>
 </head>
-<body>
+<body dir="rtl">
 
 
+<div class="text-center navbar-static-top"><!-- navbar-fixed-top -->
+
+
+    <h1 class="text-center"><a class="text-muted" href="/">
+        מימה
+</a></h1><br>
+<form class="form-inline text-center">
+
+  <div class="form-group">
+   <!-- <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label> -->
+    <div class="input-group">
+      <div class="input-group-addon">♫</div>
+      <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder="...ביצע/ה ניתוח לשינוי מין">
+      <div class="input-group-addon">♪</div>
+    </div>
+         <button type="submit" class="btn btn-default">לך חפש</button>
+  </div>
+
+</form>
+
+</div>
+
+
+
+<div>
 {% block content %}
 {% endblock %}
-
+</div>
 
 </body>
+
+   <script>
+        $(".chosen-select").chosen()
+    </script>
 </html>

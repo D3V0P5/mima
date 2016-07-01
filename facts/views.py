@@ -9,20 +9,29 @@ from . import models
 # Create your views here.
 
 
+from django.views.generic import ListView , DetailView
 
-from django.views.generic import ListView
+class ListArtistsView(ListView):
+    model = models.Artist
 
 
 class ListSongsView(ListView):
     model = models.Song
-# template_name = 'dashboard.html'
+    #template_name = 'facts/index.html'
+    #paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(ListSongsView, self).get_context_data(**kwargs)
         context['artist'] = models.Artist.objects.all() #.order_by('first_name')
         return context
-#paginate_by = 10
 
+
+class SongDetailView(DetailView):
+    model = models.Song
+
+
+class ArtistDetailView(DetailView):
+    model = models.Artist
 
 
 class ListAllView(ListView):
@@ -58,12 +67,14 @@ class SongViewSet(viewsets.ModelViewSet):
     queryset = models.Song.objects.all()
     serializer_class = SongSerializer
 
-class FactviewSet(viewsets.ModelViewSet):
+class FactViewSet(viewsets.ModelViewSet):
     queryset = models.Fact.objects.all()
     serializer_class = FactSerializer
 
+#https://select2.github.io/examples.html
+#http://selectize.github.io/selectize.js/
 
-#        def get_context_data(self, **kwargs):
+        #        def get_context_data(self, **kwargs):
 #            context = super(IndexView, self).get_context_data(**kwargs)
 #            context['roles'] = Role.objects.all()
 #            context['venue_list'] = Venue.objects.all()

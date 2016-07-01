@@ -14,6 +14,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
+class ArtistSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Artist
+        fields = '__all__'
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -48,13 +52,15 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Song
         #artist = serializers.HyperlinkedRelatedField()
-        fields = ( 'id' , 'name' )
+        #fields = ( 'name' , 'release_date' , 'id')
+        fields = '__all__'
+
 
 class FactSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Fact
         #artist = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-        fields = ('id', 'content')
+        fields = '__all__'
 
 
 
