@@ -13,6 +13,10 @@ from django.views.generic import ListView , DetailView
 
 class ListArtistsView(ListView):
     model = models.Artist
+    def get_context_data(self, **kwargs):
+        context = super(ListArtistsView, self).get_context_data(**kwargs)
+        context['songs'] = models.Song.objects.all() #.order_by('first_name')
+        return context
 
 
 class ListSongsView(ListView):

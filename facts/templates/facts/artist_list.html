@@ -3,15 +3,23 @@
 
 {% block content %}
 
-
+<h4>
         <select id="ar" data-placeholder="בחר אמן" class="chosen-select chosen-rtl" style="width:177px;" >
             <option value=""></option>
             {% for artist in object_list %}
                 <option value="{{ object.get_absolute_url }}/artist/{{artist.id}}">{{artist.name}}</option>
             {% endfor %}
         </select>
+או
 
+       <select id="so" data-placeholder="חפש שיר" class="chosen-select chosen-rtl" style="width:177px;" >
+            <option value=""></option>
+            {% for s in songs %}
 
+                <option value="song/{{s.id}}">{{s.name}}</option>
+            {% endfor %}
+        </select>
+</h4>
 
 
 <div class="list-group" style="background:none;">
@@ -24,12 +32,15 @@
 </div>
 
 <script>
-$(".chosen-select").chosen({no_results_text: "גם כן אמן. פחחח"});
-     $(".chosen-select").change(function(s){
+$("#ar").chosen({no_results_text: "אבל זה לא קיים. או מנות או תמות"});
+$("#so").chosen({no_results_text: " אבל אין שיר כזה. עכשיו שורקת"});
+$("#ar").change(function(s){
      $( location ).attr("href",$("#ar").val())
-     }
-     );
-
+     //$( location ).attr("href",$("#ar").val())
+     });
+$("#so").change(function(s){
+     $( location ).attr("href",$("#so").val())
+     });
 </script>
 
 {% endblock %}
