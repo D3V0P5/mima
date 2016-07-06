@@ -41,6 +41,16 @@ $("#ar").change(function(s){
 $("#so").change(function(s){
      $( location ).attr("href",$("#so").val())
      });
+
+    // Chosen touch support.
+    if ($('.chosen-container').length > 0) {
+      $('.chosen-container').on('touchstart', function(e){
+        e.stopPropagation(); e.preventDefault();
+        // Trigger the mousedown event.
+        $(this).trigger('mousedown');
+      });
+    }
+
 </script>
 
 {% endblock %}

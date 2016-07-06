@@ -11,7 +11,7 @@ class Command(BaseCommand):
         for i in range(1 , 1500): #1 , 1400
             # for i in range(80, 86):
             time.sleep(.3)
-            page = r.get('http:///fact_page.php?song_id={}'.format(i))
+            page = r.get('http://www.mima.co.il/fact_page.php?song_id={}'.format(i))
             tree = s.fromstring(page.content)
             song = tree.xpath('//font[@size="+5"]/text()')
             artist = tree.xpath('//font[@size="+2"]/text()')
