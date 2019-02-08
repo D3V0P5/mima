@@ -1,4 +1,4 @@
-Django==1.9.7
+Django==1.11.18
 Markdown==2.6.6
 PyDispatcher==2.0.5
 PyENCODE==0.2
