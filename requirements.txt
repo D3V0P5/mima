@@ -24,7 +24,7 @@ django-encode==1.0.4
 django-extensions==1.6.7
 django-filter==0.13.0
 django-queued-storage==0.8.0
-djangorestframework==3.3.3
+djangorestframework>=3.9.1
 gunicorn==19.6.0
 idna==2.1
 intervaltree==2.1.0
