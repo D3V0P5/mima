@@ -39,7 +39,7 @@ pyasn1-modules==0.0.8
 pycparser==2.14
 pytz==2016.4
 queuelib==1.4.2
-requests==2.10.0
+requests==2.20.0
 service-identity==16.0.0
 setproctitle==1.1.10
 six==1.10.0
