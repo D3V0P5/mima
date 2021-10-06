@@ -2,7 +2,7 @@ django>=1.11.21
 Markdown==2.6.6
 PyDispatcher==2.0.5
 PyENCODE==0.2
-Scrapy==1.1.0
+Scrapy==1.8.1
 twisted>=19.2.1
 amqp==1.4.9
 anyjson==0.3.3
