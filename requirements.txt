@@ -30,7 +30,7 @@ idna==2.1
 intervaltree==2.1.0
 intervaltree-bio==1.0.1
 kombu==3.0.35
-lxml==3.6.0
+lxml==4.6.5
 mysqlclient==1.3.7
 parsel==1.0.2
 pyopenssl>=17.5.0
